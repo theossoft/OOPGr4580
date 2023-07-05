@@ -32,6 +32,11 @@ public class SpecialClient extends Actor{
       return this;
     }
 
+    @Override
+    public boolean isReturnOrder() {
+        return false;
+    }
+
     // @Override
     // public String getName() {
     //     return name;
