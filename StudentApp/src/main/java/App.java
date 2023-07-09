@@ -4,23 +4,25 @@ import java.util.Collections;
 import java.util.List;
 
 import Controllers.EmploeeController;
-import Domen.Emploee;
-import Domen.Person;
-import Domen.PersonComparator;
-import Domen.Student;
-import Domen.StudentGroup;
-import Domen.Teacher;
+import Domen.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
-
+// Создание студентов
          Student s1 = new Student("Иван", 25, 121);
          Student s2 = new Student("Игорь", 23, 301);
-         Student s3 = new Student("Иван", 22, 121);
+         Student s3 = new Student("Иван", 19, 121);
          Student s4 = new Student("Игорь",  23, 444);
-         Student s5 = new Student("Даша",  23, 171);
-         Student s6 = new Student("Лена",  23, 104);
+         Student s5 = new Student("Даша",  18, 171);
+         Student s6 = new Student("Лена",  20, 106);
+         Student s7 = new Student("Петр", 25, 127);
+         Student s8 = new Student("Григорий", 24, 701);
+         Student s9 = new Student("Анатолий", 22, 181);
+         Student s10 = new Student("Жерар",  23, 445);
+         Student s11 = new Student("Игнат", 18, 125);
+         Student s12 = new Student("Жерар",  27, 789);
 
+// Добавление студентов в список
          List<Student> listStud = new ArrayList<Student>();
          listStud.add(s1);
          listStud.add(s2);
@@ -28,25 +30,51 @@ public class App {
          listStud.add(s4);
          listStud.add(s5);
          listStud.add(s6);
-        
-
+         List<Student> listStud1 = new ArrayList<Student>();
+         listStud1.add(s7);
+         listStud1.add(s8);
+         listStud1.add(s9);
+         listStud1.add(s10);
+         List<Student> listStud2 = new ArrayList<Student>();
+         listStud2.add(s11);
+         listStud2.add(s12);
+// Создание студенческой группы из списка студентов
          StudentGroup group4580 = new StudentGroup(listStud, 4580);
-         System.out.println(group4580);
+//         System.out.println(group4580);
+         StudentGroup group4056 = new StudentGroup(listStud1, 4056);
+         StudentGroup group2028 = new StudentGroup(listStud2, 2028);
 
-         for(Student std : group4580)
-         {
-             System.out.println(std);
+//         for(Student std : group4580)
+//         {
+//             System.out.println(std);
+//         }
+// Создание потока студентов из студенческих групп
+         List<StudentGroup> studentGroupList = new ArrayList<>();
+         studentGroupList.add(group4580);
+         studentGroupList.add(group4056);
+         studentGroupList.add(group2028);
+         StudentSteam studentSteam = new StudentSteam(1, studentGroupList);
+
+// Вывод студенческих потоков на экран
+         for(StudentGroup studentGroup : studentSteam) {
+              System.out.println(studentGroup.getIdGroup() + " " + studentGroup);
+         }
+         System.out.println(studentSteam);
+         Collections.sort(studentGroupList);
+         for(StudentGroup studentGroup : studentSteam) {
+              System.out.println(studentGroup.getIdGroup() + " " + studentGroup);
          }
 
-         System.out.println("=========================================================");
 
-         Collections.sort(group4580.getGroup());
-
-         for(Student std: group4580.getGroup())
-         {
-             System.out.println(std);
-         }
-
+//         System.out.println("=========================================================");
+//// Сортировка студенческой группы по заданным параметрам
+//         Collections.sort(group4580.getGroup());
+//
+//         for(Student std: group4580.getGroup())
+//         {
+//             System.out.println(std);
+//         }
+//// Конец сортировки студентов
 
 //        Student s1 = new Student("Иван", 25, 121);
 //        Student s2 = new Student("Игорь", 23, 301);
