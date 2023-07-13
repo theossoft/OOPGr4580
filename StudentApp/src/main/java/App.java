@@ -5,6 +5,7 @@ import java.util.List;
 
 import Controllers.EmploeeController;
 import Domen.*;
+import Services.AverageAge;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -43,61 +44,62 @@ public class App {
 //         System.out.println(group4580);
          StudentGroup group4056 = new StudentGroup(listStud1, 4056);
          StudentGroup group2028 = new StudentGroup(listStud2, 2028);
-
-//         for(Student std : group4580)
-//         {
-//             System.out.println(std);
+//
+////         for(Student std : group4580)
+////         {
+////             System.out.println(std);
+////         }
+//// Создание потока студентов из студенческих групп
+//         List<StudentGroup> studentGroupList = new ArrayList<>();
+//         studentGroupList.add(group4580);
+//         studentGroupList.add(group4056);
+//         studentGroupList.add(group2028);
+//         StudentSteam studentSteam = new StudentSteam(1, studentGroupList);
+//
+//// Вывод студенческих потоков на экран
+//         for(StudentGroup studentGroup : studentSteam) {
+//              System.out.println(studentGroup.getIdGroup() + " " + studentGroup);
 //         }
-// Создание потока студентов из студенческих групп
-         List<StudentGroup> studentGroupList = new ArrayList<>();
-         studentGroupList.add(group4580);
-         studentGroupList.add(group4056);
-         studentGroupList.add(group2028);
-         StudentSteam studentSteam = new StudentSteam(1, studentGroupList);
-
-// Вывод студенческих потоков на экран
-         for(StudentGroup studentGroup : studentSteam) {
-              System.out.println(studentGroup.getIdGroup() + " " + studentGroup);
-         }
-         System.out.println(studentSteam);
-         Collections.sort(studentGroupList);
-         for(StudentGroup studentGroup : studentSteam) {
-              System.out.println(studentGroup.getIdGroup() + " " + studentGroup);
-         }
-
-
-//         System.out.println("=========================================================");
-//// Сортировка студенческой группы по заданным параметрам
-//         Collections.sort(group4580.getGroup());
-//
-//         for(Student std: group4580.getGroup())
-//         {
-//             System.out.println(std);
+//         System.out.println(studentSteam);
+//         Collections.sort(studentGroupList);
+//         for(StudentGroup studentGroup : studentSteam) {
+//              System.out.println(studentGroup.getIdGroup() + " " + studentGroup);
 //         }
-//// Конец сортировки студентов
+//
+//
+////         System.out.println("=========================================================");
+////// Сортировка студенческой группы по заданным параметрам
+////         Collections.sort(group4580.getGroup());
+////
+////         for(Student std: group4580.getGroup())
+////         {
+////             System.out.println(std);
+////         }
+////// Конец сортировки студентов
 
-//        Student s1 = new Student("Иван", 25, 121);
-//        Student s2 = new Student("Игорь", 23, 301);
-//
-//        PersonComparator<Student> comS = new PersonComparator<Student>();
-//        comS.compare(s1, s2);
-//
-//        Teacher t1 = new Teacher("Иван", 25, "Docent");
-//        Teacher t2 = new Teacher("Игорь", 23, "Professor");
-//
-//        PersonComparator<Teacher> comT = new PersonComparator<Teacher>();
-//        comT.compare(t1, t2);
-//
-//        //comS.compare(s1, t2);
-//        PersonComparator<Person> comP = new PersonComparator<Person>();
-//        comP.compare(s1, t2);
-//
-//        Emploee e1 = new Emploee("Федорович", 60, "разнорабочим");
-//        //EmploeeController empControll = new EmploeeController();
-//        EmploeeController.paySalary(e1);
-//       // EmploeeController.paySalary(s1);
-//        //empControll.paySalary(e1);
-//        //empControll.paySalary(s1);
+        PersonComparator<Student> comS = new PersonComparator<Student>();
+        comS.compare(s1, s2);
+
+        Teacher t1 = new Teacher("Иван", 25, "Docent");
+        Teacher t2 = new Teacher("Игорь", 23, "Professor");
+
+        PersonComparator<Teacher> comT = new PersonComparator<Teacher>();
+        comT.compare(t1, t2);
+
+        //comS.compare(s1, t2);
+        PersonComparator<Person> comP = new PersonComparator<Person>();
+        comP.compare(s1, t2);
+
+        Emploee e1 = new Emploee("Федорович", 60, "разнорабочим");
+        //EmploeeController empControll = new EmploeeController();
+        EmploeeController.paySalary(e1);
+       // EmploeeController.paySalary(s1);
+        //empControll.paySalary(e1);
+        //empControll.paySalary(s1);
+
+        // Средний возраст студенктов в группе
+        AverageAge age = new AverageAge(group4580);
+        System.out.println(age.getAverageAge());
 
     }
 }
