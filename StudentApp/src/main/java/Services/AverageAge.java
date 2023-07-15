@@ -5,20 +5,17 @@ import Domen.PersonGroup;
 import Domen.Student;
 import Domen.StudentGroup;
 
-public class AverageAge<T extends StudentGroup> {
-    private StudentGroup people;
+import java.util.List;
 
-    public AverageAge(T studenGroup) {
-        people = studenGroup;
-    }
+public class AverageAge<T extends Person> {
 
-    public double getAverageAge() {
-        int sum = 0;
+    public int getAverageAge(List<T> pers) {
+        int index = 0;
         int count = 0;
-        for (Student student : people) {
-            sum = sum + student.getAge();
-            count++;
+        for (T item : pers) {
+            count += item.getAge();
+            index++;
         }
-        return (double)sum / count;
+        return count / index;
     }
 }

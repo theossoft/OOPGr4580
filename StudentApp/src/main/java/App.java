@@ -98,8 +98,8 @@ public class App {
         //empControll.paySalary(s1);
 
         // Средний возраст студенктов в группе
-        AverageAge age = new AverageAge(group4580);
-        System.out.println(age.getAverageAge());
+        AverageAge age = new AverageAge();
+        System.out.println(age.getAverageAge(listStud));
 
     }
 }
